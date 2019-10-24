@@ -22,12 +22,10 @@
   use other type, feel free to google how to do that, there are plenty of info
    on that.)
  
- 1. `sudo apt-get update`
- 
+ 1. `sudo apt-get update`   
     `sudo apt-get upgrade`
     
- 2. `sudo apt-get install exfat-fuse`
- 
+ 2. `sudo apt-get install exfat-fuse`  
     `sudo apt-get install exfat-utils`
           
  3. Connect your HDD / SSD to your Raspberry Pi
@@ -38,10 +36,8 @@
  do.
  
  ### Step 1 - Mounting the Disk
- `sudo mkdir /mnt/usb`
- 
- `sudo chown -R pi:pi /mnt/usb`
- 
+ `sudo mkdir /mnt/usb`  
+ `sudo chown -R pi:pi /mnt/usb`  
  `sudo mount /dev/sda1 /mnt/usb -o uid=pi,gid=pi`
  
 Now we are going to make it mount automatically at startup:
@@ -63,34 +59,26 @@ Each will have their own private folder
 on the drive (adjust this step based on what you want or skip if you're interested
 in public directory only).
 
-`sudo adduser --no-create-home --disabled-password --disabled-login user1`
-
-`sudo smbpasswd -a user1` - set password for user1
-
-`sudo adduser --no-create-home --disabled-password --disabled-login user2`
-
+`sudo adduser --no-create-home --disabled-password --disabled-login user1`  
+`sudo smbpasswd -a user1` - set password for user1  
+`sudo adduser --no-create-home --disabled-password --disabled-login user2`  
 `sudo smbpasswd -a user2` - set password for user2
 
 ### Step 4 - Create folder structure
 `chmod 1777 /mnt/usb`
 
 ##### Public folder
-`sudo mkdir /mnt/usb/public`
-
+`sudo mkdir /mnt/usb/public`  
 `chmod 1777 /mnt/usb/public`
 
 ##### User1 folder
-`sudo mkdir /mnt/usb/user1`
-
-`chmod 1777 /mnt/usb/user1`
-
+`sudo mkdir /mnt/usb/user1`  
+`chmod 1777 /mnt/usb/user1`  
 `sudo chown -R user1:users /mnt/usb/user1`
 
 ##### User2 folder
-`sudo mkdir /mnt/usb/user2`
-
-`chmod 1777 /mnt/usb/user2`
-
+`sudo mkdir /mnt/usb/user2`  
+`chmod 1777 /mnt/usb/user2`  
 `sudo chown -R user2:users /mnt/usb/user2`
 
 ### Step 5 - Configure SMB
@@ -103,35 +91,35 @@ OR
 Just add this at the end of your file and adjust based on your
 needs:
 
->[public] 
-  comment = public storage 
-  path = /mnt/usb/public 
-  create mask = 0777
-  directory mask = 0777
-  Public = yes
+>[public]  
+  comment = public storage  
+  path = /mnt/usb/public  
+  create mask = 0777  
+  directory mask = 0777  
+  Public = yes  
   Guest ok = yes
 
->[user1]
-  comment = User 1 Private Folder
-  path = /mnt/usb/user1
-  browsable = yes
-  read only = no
-  guest ok = no
-  valid users = user1
-  force user = user1
-  create mask = 0777
-  directory mask = 0777
+>[user1]  
+  comment = User 1 Private Folder  
+  path = /mnt/usb/user1  
+  browsable = yes  
+  read only = no  
+  guest ok = no  
+  valid users = user1  
+  force user = user1  
+  create mask = 0777  
+  directory mask = 0777  
 
->[user2]
-  comment = User 2 Private Folder  
-  path = /mnt/usb/user2
-  browsable = yes
-  read only = no
-  guest ok = no
-  valid users = user2
-  force user = user2
-  create mask = 0777
-  directory mask = 0777
+>[user2]  
+  comment = User 2 Private Folder    
+  path = /mnt/usb/user2  
+  browsable = yes  
+  read only = no  
+  guest ok = no  
+  valid users = user2  
+  force user = user2  
+  create mask = 0777  
+  directory mask = 0777  
 
 Note that this config is for 3 folders and 2 users that we created before. 
 If you only want the public folder config, then copy the [public] only.
