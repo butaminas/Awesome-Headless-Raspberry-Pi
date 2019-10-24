@@ -1,5 +1,5 @@
 # NAS Home File Server (Samba)
- This is how I set up my Raspberry pi as a network drive
+ This is how I set up my Raspberry Pi as a network drive
  connected with an external drive.
  In this setup, you will create 3 folders in your drive,
  2 of witch will be private and only accessible by assigned users
@@ -168,4 +168,4 @@ for Mac OS and
 
 for Windows
 
-Note: change **192.168.0.123** to your Raspberry pi IP.
+Note: change **192.168.0.123** to your Raspberry Pi IP.
