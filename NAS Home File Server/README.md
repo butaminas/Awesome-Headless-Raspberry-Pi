@@ -11,7 +11,11 @@
  
  ## Pre-requirements:
  Have your Raspberry Pi working and ready for business.
- Meaning, it can be a stock installation just make sure you can connect to the SSH
+ Meaning, it can be a stock installation
+  but should have
+   [Raspbian](https://www.raspberrypi.org/downloads/raspbian/)
+    or any other debian / ubuntu based OS
+    just make sure you can connect to the SSH
  or VNC server if you use it as a headless (without monitor) device.
  
  ### Step 0 - Formatting the drive (optional)
