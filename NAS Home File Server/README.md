@@ -96,12 +96,14 @@ Just add this at the end of your file and adjust based on your
 needs:
 
 >[public]  
-  comment = public storage  
-  path = /mnt/usb/public  
-  create mask = 0777  
-  directory mask = 0777  
-  Public = yes  
-  Guest ok = yes
+  comment = public storage
+  path = /mnt/usb/public
+  create mask = 0777
+  directory mask = 0777
+  public = yes
+  guest ok = yes
+  browsable = yes
+  writable = yes
 
 >[user1]  
   comment = User 1 Private Folder  
@@ -129,7 +131,7 @@ Note that this config is for 3 folders and 2 users that we created before.
 If you only want the public folder config, then copy the [public] only.
 
 ### Step 6 - Restart SMB
-`sudo /etc/init.d/samba restart`
+`sudo /etc/init.d/smbd restart`
 
 
 ### Conclusion
